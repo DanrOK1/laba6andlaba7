@@ -3,7 +3,6 @@ function sealed(constructor: Function) {
     Object.seal(constructor.prototype);
 }
 
-// Декоратор для преобразования строк в верхний регистр
 function toUpperCase(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
     descriptor.value = function (...args: any[]) {
@@ -24,9 +23,7 @@ class Car {
 
 const car = new Car('Kia', 'Rio');
 
-// Пробуем изменить свойства экземпляра
 car.brand = 'BMW';
 car.model = 'M5';
 
-// Проверка работоспособности
 console.log(car.getInfo()); 
